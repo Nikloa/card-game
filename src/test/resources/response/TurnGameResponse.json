@@ -1,0 +1,19 @@
+{
+    "gameId": "123",
+    "players": [
+        {
+            "playerId": "234",
+            "name": "Alex",
+            "points": "12",
+            "hisTurn": true
+        },
+        {
+            "playerId": "36",
+            "name": "Neo",
+            "points": "8",
+            "hisTurn": false
+        }
+    ],
+    "cardsLeft": "8",
+    "lastTurn": "Игрок $turn.player.user.name вытянул карту $turn.card.name. Игрок $turn.playerUnderEffect $turn.card.description"
+}

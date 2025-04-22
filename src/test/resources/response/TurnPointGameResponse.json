@@ -1,0 +1,19 @@
+{
+    "gameId": "1",
+    "players": [
+        {
+            "playerId": "1",
+            "name": "Alex",
+            "points": "10",
+            "hisTurn": false
+        },
+        {
+            "playerId": "2",
+            "name": "Neo",
+            "points": "5",
+            "hisTurn": true
+        }
+    ],
+    "cardsLeft": "3",
+    "lastTurn": "Игрок Alex вытянул карту PointCard. Игрок Alex прибавляет 5 очков"
+}

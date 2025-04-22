@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: 5
+      author: me
+      changes:
+        - createTable:
+            tableName: deck_cards
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: card_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: game_session_id
+                  type: BIGINT
+              - column:
+                  name: deck_position
+                  type: INT
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 5_1
+      author: me
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: fk_deck_card_card
+            baseTableName: deck_cards
+            baseColumnNames: card_id
+            referencedTableName: cards
+            referencedColumnNames: id
+            onDelete: CASCADE
+
+        - addForeignKeyConstraint:
+            constraintName: fk_deck_card_game_session
+            baseTableName: deck_cards
+            baseColumnNames: game_session_id
+            referencedTableName: game_sessions
+            referencedColumnNames: id
+            onDelete: CASCADE

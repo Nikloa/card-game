@@ -1,0 +1,13 @@
+{
+    "gameId": "1",
+    "players": [
+        {
+            "playerId": "{id}",
+            "name": "Alex",
+            "points": "0",
+            "hisTurn": false
+        }
+    ],
+    "cardsLeft": "4",
+    "lastTurn": "Игра в ожидании игроков"
+}

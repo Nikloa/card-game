@@ -1,0 +1,59 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4
+      author: me
+      changes:
+        - createTable:
+            tableName: players
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: game_session_id
+                  type: BIGINT
+                  constraints:
+                    nullable: true
+              - column:
+                  name: points
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: turn_order
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_player_turn
+                  type: BOOLEAN
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 4_1
+      author: me
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: fk_player_user
+            baseTableName: players
+            baseColumnNames: user_id
+            referencedTableName: users
+            referencedColumnNames: id
+            onDelete: CASCADE
+
+        - addForeignKeyConstraint:
+            constraintName: fk_player_game_session
+            baseTableName: players
+            baseColumnNames: game_session_id
+            referencedTableName: game_sessions
+            referencedColumnNames: id
+            onDelete: SET NULL

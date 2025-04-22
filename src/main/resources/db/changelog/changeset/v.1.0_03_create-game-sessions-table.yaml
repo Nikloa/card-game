@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: your_name
+      changes:
+        - createTable:
+            tableName: game_sessions
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: state
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false

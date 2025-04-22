@@ -1,0 +1,75 @@
+databaseChangeLog:
+  - changeSet:
+      id: 6
+      author: me
+      changes:
+        - createTable:
+            tableName: turns
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: game_session_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: player_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: player_under_effect_id
+                  type: BIGINT
+                  constraints:
+                    nullable: true
+              - column:
+                  name: card_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: step
+                  type: INT
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 6_1
+      author: me
+      changes:
+        - addForeignKeyConstraint:
+            constraintName: fk_turn_game_session
+            baseTableName: turns
+            baseColumnNames: game_session_id
+            referencedTableName: game_sessions
+            referencedColumnNames: id
+            onDelete: CASCADE
+
+        - addForeignKeyConstraint:
+            constraintName: fk_turn_player
+            baseTableName: turns
+            baseColumnNames: player_id
+            referencedTableName: players
+            referencedColumnNames: id
+            onDelete: CASCADE
+
+        - addForeignKeyConstraint:
+            constraintName: fk_turn_player_under_effect
+            baseTableName: turns
+            baseColumnNames: player_under_effect_id
+            referencedTableName: players
+            referencedColumnNames: id
+            onDelete: SET NULL
+
+        - addForeignKeyConstraint:
+            constraintName: fk_turn_card
+            baseTableName: turns
+            baseColumnNames: card_id
+            referencedTableName: cards
+            referencedColumnNames: id
+            onDelete: CASCADE

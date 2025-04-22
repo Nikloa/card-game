@@ -1,0 +1,23 @@
+server:
+  port: ${SERVER_PORT:8080}
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/card_game_db}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: postgresql
+  liquibase:
+    change-log: db/changelog/changelog-master.yml
+    enabled: true
+token:
+  signing:
+    key: 53A73E5F1C4E0A2D3B5F2D784E6A1B423D6F247D1F6E5C3A596D635A75327855
+game:
+  maxPlayers: 4
+  minPlayers: 2
+  maxScore: 30

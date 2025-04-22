@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changeset/v.1.0_01_create-users-table.yaml
+  - include:
+      file: db/changelog/changeset/v.1.0_02_create-cards-table.yaml
+  - include:
+      file: db/changelog/changeset/v.1.0_03_create-game-sessions-table.yaml
+  - include:
+      file: db/changelog/changeset/v.1.0_04_create-players-table.yaml
+  - include:
+      file: db/changelog/changeset/v.1.0_05_create-deck-cards-table.yaml
+  - include:
+      file: db/changelog/changeset/v.1.0_06_create-turns-table.yaml
